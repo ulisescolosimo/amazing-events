@@ -1,0 +1,414 @@
+main {
+    font-family: monospace !important;
+    height: 100%;
+    min-width: 100% !important;
+}
+
+.navbar-toggler {
+    border: 2px solid #dc046c !important;
+}
+
+.nav-link {
+    font-size: 20px !important;
+    color: black !important;
+}
+
+.navbar {
+    background: #e2dee0 !important;
+}
+
+.contenedor-detalle {
+    width: 100vw !important;
+}
+
+footer {
+    height: 10vh !important;
+    background: #dc046c !important;
+}
+
+.formulario{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important;
+    flex-direction: column;
+    color: #dc046c !important;
+}
+
+.detail {
+    min-width: 30vw !important;
+}
+
+.card-img-top {
+    width: auto !important;
+}
+
+.bi {
+    color: black !important;
+}
+
+fieldset input {
+    margin-bottom: 30px !important;
+    margin-top: 10px !important;
+    width: 100% !important;
+}
+
+fieldset textarea {
+    margin-top: 10px;
+    width: 100% !important;
+}
+
+svg {
+    margin: 8px;
+    color: black !important;
+}
+
+.form-control {
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+nav a:hover {
+    color: #dc046c !important;
+}
+
+.form-control {
+    width: 100% !important;
+}
+
+.contacto {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+nav ul {
+    justify-content: center;
+    align-content: center;
+}
+
+#search2 {
+    display: none !important;
+}
+
+.container {
+    margin: auto;
+}
+
+.form-select {
+    display: none !important;
+}
+
+.check {
+    margin-left: 1rem !important;
+    font-size: 18px !important;
+}
+
+.cbox {
+    margin: 10px !important;
+}
+
+
+.carousel {
+    background-image: url("https://www.duna.cl/media/2021/01/concierto.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+i {
+    color: black !important;
+    width: 100px !important;
+    height: 100px !important;
+}
+
+.descripcion {
+    border-radius: 10px;
+    border: 2px solid black !important;
+    width: 65vw !important;
+    max-width: 65vw;
+}
+
+#detalles {
+    max-width: 100% !important;
+    width: 500px !important;
+    margin: 20px;
+}
+
+.desc {
+    font-size: 1rem;
+}
+
+.btn btn-outline-success {
+    color: black !important;
+    background-color:white !important;
+    border: none !important;
+}
+
+.navbar-toggler {
+    background: none;
+	color: inherit;
+	border: none ;
+	font: inherit !important; 
+	cursor: pointer !important;
+	outline: none !important;
+}
+
+table {
+    font-size: 20px;
+    margin-top: 50px;
+    empty-cells: show;
+    border: 1px solid;
+}
+
+table tr td{
+    border: 1px solid black;
+    color: black !important;
+}
+
+td {
+    text-align: center;
+}
+
+th {
+    font-size: 30px;
+    color: #dc046c;
+    padding: 5px;
+}
+
+nav ul li{
+    text-align: center;
+}
+
+body {
+    background: #ffff;
+    color: black !important;
+}
+
+@media only screen and (max-width: 1400px) {
+    .barra {
+        flex-direction: column;
+    }
+
+    #search {
+        margin-top: 20px !important;
+    }
+}
+
+@media only screen and (max-width: 1290px) {
+    .barra {
+        flex-direction: column;
+    }
+
+    .categorias {
+        justify-content: center;
+    }
+
+    .vertical{
+        align-items: center;
+    }
+
+    #search {
+        width: 200px !important;
+    }
+
+    form {
+        justify-content: center !important;
+        margin-top: 25px !important;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+
+    .container-fluid {
+        justify-content: space-around !important;
+    }
+
+    .vertical {
+        flex-direction: column !important;
+    }
+
+    #contact {
+        height: 70vh !important;
+        width: 100% !important;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+
+    .carousel {
+        height: 100% !important;
+    }
+
+    .categorias {
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+    }
+    
+    .contacto {
+        width: 70%;
+    }
+
+    .nav-link {
+        font-size: 20px !important;
+        color: black !important;
+    }
+
+    .barra {
+        justify-content: center !important;
+        align-items: center !important;
+        flex-direction: column !important;
+    }
+
+    .barra select {
+        height: 100% !important;
+        width: 100% !important;
+    }
+
+    .container {
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .abajo li{
+        justify-content: center !important;
+    }
+
+    .formulario input {
+        width: 100% !important;
+    }
+
+    #detalles {
+        max-width: 60% !important;
+        margin: 20px;
+    }
+
+    nav{
+        justify-content: space-between !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .carousel {
+        height: 100% !important;
+    }
+
+    #detalles {
+        max-width: 90% !important;
+        margin: 20px;
+    }
+
+    .categorias {
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+    }
+
+    .descripcion p {
+        margin: 5px;
+    }
+
+    nav button {
+        margin: 10px !important;
+    }
+
+    .vertical {
+        flex-direction: column;
+        font-size: 4px !important;
+        justify-content: center !important;
+    }
+
+    .formulario input {
+        width: 100% !important;
+    }
+
+    .div-logo {
+        width:100vw !important;
+        margin: 0px !important;
+    }
+
+    .logo{
+        width:60vw !important;
+        height: 100% !important;
+    }
+
+    .categorias {
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+    }
+
+    .vertical img {
+        width: 250px !important;
+    }
+
+}
+
+@media only screen and (max-width: 425px) {
+    .categorias {
+        flex-direction: column !important;
+    }
+
+    #search {
+        display: none !important;
+    }
+
+    #search2 {
+        display: inline !important;
+    }
+
+    .cbox {
+        display: none !important;
+    }
+
+    .form-select {
+        display:inline !important;
+        width: 50% !important;
+    }
+
+    .div-logo {
+        margin: 0px !important;
+    }
+
+    .contenedor-detalles {
+        height:50vh !important; 
+    }
+
+    .contacto {
+        width: 90%;
+    }
+
+    navbar img{
+        width:100px !important;
+    }
+
+    .carousel {
+        margin-top: 10px !important;
+        height: 100% !important;
+    }
+
+    footer {
+        flex-direction: column !important;
+        height: auto !important;
+    }
+}
+
+
+@media only screen and (max-width: 320px) {
+    .logo{
+        width:45vw !important;
+        height: 100% !important;
+    }
+
+    .div-logo {
+        width:100vw !important;
+        margin: 0px !important;
+    }
+
+}
