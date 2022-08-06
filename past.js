@@ -40,14 +40,14 @@ search.addEventListener('keyup', (e) => {
     e.preventDefault()
 
     dataSearch = e.target.value.toLowerCase()
-    searchKey()
+    searchKey(checkboxList, dataSearch)
 })
 
 let checkboxList = [];
 
 checkbox.forEach(item => item.addEventListener("change", ()=>{
     checkboxList = Array.from(checkbox).filter(item => item.checked).map(item => item.value)
-    searchKey()
+    searchKey(checkboxList, dataSearch)
     }
 ))
 
@@ -56,32 +56,72 @@ function filterName(array, search) {
     return filtroSearch
 }
 
-function filterCategory(array, filtro) {
-    let elementosFiltrados = array.filter(item => filtro.includes(item.category))
+function filtrarArray(filtro) {
+    let elementosFiltrados = data.events.filter(item => filtro.includes(item.category))
     return elementosFiltrados
 }
 
 let arrayFiltro = [];
 
-let searchKey = () => {
-        if(checkboxList.length > 0 && dataSearch === ""){
-            let filterEvents = filterCategory(filtroDataHome, checkboxList)
-            console.log(filterEvents)
+let searchKey = (checks, search) => {
+    /* Si el array de checkbox tiene elementos pero el search esta vacio, se filtra las cartas por categoria y no por nombre */
+        if(checks.length > 0 && search.length === 0){
+            let filterEvents = filtrarArray(checks)
             arrayFiltro = filterEvents
-            console.log(arrayFiltro)
-        } else if (checkboxList.length === 0 && dataSearch.length === 0) {
-            arrayFiltro = filtroDataHome
-        } else if (checkboxList.length === 0 && dataSearch.length > 0) {
-            let searchbarEvents = filterName(filtroDataHome, dataSearch)
+        /* Else if  los checkbox estan vacios y la searchbar tambien esta vacia, se mapea el array default (data.events) */
+        } else if (checks.length === 0 && search.length === 0) {
+            arrayFiltro = data.events
+        /* Else if los checkbox estan vacios pero la searchbar tiene contenido, se filtran los nombres de las cartas que posean alguna letra ingresada en searchbar */
+        } else if (checks.length === 0 && search.length > 0) {
+            let searchbarEvents = filterName(data.events, search)
             arrayFiltro = searchbarEvents
-        } else {
-            let filterEvents = filterCategory(filtroDataHome, checkboxList)
-            let searchbarEvents = filterName(filterEvents, dataSearch)
+        } else if(checks.length > 0 && search != ""){
+            /* Si searchbar tiene valor y algun checkbox esta marcado: */
+            let filterEvents = filtrarArray(checks)
+            let searchbarEvents = filterName(filterEvents, search)
             arrayFiltro = searchbarEvents
         }
+        
+        /* Finalmente, si ninguna de estas condiciones se cumplen se muestra un mensaje que indica ajustar la busqueda*/
         cardContainerPast.innerHTML = ""
         if(arrayFiltro.length === 0){
-            cardContainerPast.innerHTML = "No se encontraron resultados. Por favor, ajuste la búsqueda."
+            cardContainerPast.innerHTML = "<p>No se encontraron resultados. Por favor, ajuste la búsqueda.</p>"
         }
         mapeoData(arrayFiltro, cardContainerPast)
     }
+
+
+    let search2 = document.querySelector("#search2")
+    let categories = document.querySelectorAll("#display")
+    let dataSearch2 = "";
+    
+    let checkboxList2 = Array.from(checkbox).map((item) => (item.value))
+    
+    search2.addEventListener('keyup', (e) => {
+        e.preventDefault()
+        dataSearch2 = e.target.value.toLowerCase()
+        if(cats[0] != "All"){
+            searchKey(cats, dataSearch2)
+        } else if (cats[0] == "All" && dataSearch2 != ""){
+            searchKey(checkboxList2, dataSearch2)
+        } else if (cats[0] == "All" && dataSearch2 == ""){
+            cardContainerPast.innerHTML = ''
+            mapeoData(data.events, cardContainerPast)
+        }
+    })
+    
+    let cats = []
+    
+    categories.forEach(item => item.addEventListener("change", ()=>{
+        cats = Array.from(categories).filter(item => item).map(item => item.value)
+        console.log(cats)
+        if(cats[0] == "All" && dataSearch2 == ''){
+            cardContainerPast.innerHTML = ""
+            mapeoData(data.events, cardContainerPast)
+        }else if(dataSearch2 != '' && cats[0] == "All"){
+            searchKey(checkboxList2, dataSearch2)
+        }else{
+            searchKey(cats, dataSearch2)
+        }
+    }
+    ))

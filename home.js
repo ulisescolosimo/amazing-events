@@ -74,7 +74,6 @@ function filterName(array, search) {
 
 function filtrarArray(filtro) {
     let elementosFiltrados = data.events.filter(item => filtro.includes(item.category))
-    console.log(elementosFiltrados)
     return elementosFiltrados
 }
 
