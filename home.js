@@ -6,6 +6,17 @@ let checkbox = document.querySelectorAll("input[name=checkbox]");
 
 /* funcion reutilizable para mapear las cartas, con dos parámetros para definir su destino. */
 
+let data;
+
+async function getData(){
+    await fetch("https://amazing-events.herokuapp.com/api/events")
+        .then(res => res.json())
+        .then(json => data = json);
+    mapeoData(data.events, home)
+}
+
+getData()
+
 const mapeoData = (array, donde) => {
     array.map((item) => {
         let card = document.createElement('div')
@@ -20,7 +31,7 @@ const mapeoData = (array, donde) => {
         <p>Description: ${item.description}</p>
         <div class="d-flex align-items-center justify-content-evenly text-start">
             <label class="precio d-flex justify-content-start">Price:<b>$${item.price}</b></label>
-            <a style="width: 100px;" href="./details.html?id=${item._id}" class="btn bg-black text-white ver">Ver más</a>
+            <a style="width: 100px;" href="./details.html?id=${item._id}" class="btn bg-black text-white ver">See more</a>
         </div>
         </div>`
         donde.appendChild(card)
@@ -28,8 +39,6 @@ const mapeoData = (array, donde) => {
 }
 
 /* Llamo a la funcion mapeoData para mapear el array filtrado por fecha menor a la actual en home */
-
-mapeoData(data.events, home)
 
 /* Agrego una funcion con add event listener de keyup, para que cada vez que escriba me filtre los elementos en el DOM a traves del buscador. El array inicial contiene los 14 elementos del data.events
 Si llamo a la funcion searchKey y le paso por parametro el array que va a buscar, se enfoca solo en ese hasta que le vuelva a indicar lo contrario.
@@ -74,7 +83,6 @@ function filterName(array, search) {
 
 function filtrarArray(filtro) {
     let elementosFiltrados = data.events.filter(item => filtro.includes(item.category))
-    console.log(elementosFiltrados)
     return elementosFiltrados
 }
 

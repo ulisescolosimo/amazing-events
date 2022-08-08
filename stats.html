@@ -48,85 +48,45 @@
             </div>
     </div>
         <div class="container">
-            <div class="d-flex min-vh-85 justify-content-center align-items-center mb-5">
+            <div class="d-flex min-vh-85 w-100 flex-column justify-content-center align-items-center mb-5">
             <table>
                 <thead>
                     <tr>
-                        <th colspan="3">Events statistics</th>
+                        <th colspan="3" class="text-center">Events statistics</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="events">
                 <tr>
-                <td>Events with the highest percentage of attendance</td> 
-                <td>Events with the lowest percentage of attendance</td>
-                <td>Event with larger capacity</td>
+                    <td>Events with the highest percentage of attendance</td> 
+                    <td>Events with the lowest percentage of attendance</td>
+                    <td>Event with larger capacity</td>
                 </tr>
-                <tr>
-                <td>-</td>
-                <td></td>
-                <td></td>
-                </tr>
-                <tr>
-                <th colspan="3">Upcoming events statistics by category</th>
-                </tr>
-                <tr>
-                <td>Categories</td> 
-                <td>Revenues</td>
-                <td>Percentage of attendance</td>
-                </tr>
-                <tr>
-                <td>-</td>
-                <td></td>
-                <td></td>
-                </tr>
-                <tr>
-                <td>-</td>
-                <td></td>
-                <td></td>
-                </tr>
-                <tr>
-                <td>-</td>
-                <td></td>
-                <td></td>
-                </tr>
-                <tr>
-                <th colspan="3">Past Events statistic by category</th>
-                </tr>
-                <tr>
-                <td>Categories</td> 
-                <td>Revenues</td>
-                <td>Percentage of attendance</td>
-                </tr>
-                <tr>
-                <td>-</td>
-                <td></td>
-                <td></td>
-                </tr>
-                <tr>
-                <td>-</td>
-                <td></td>
-                <td></td>
-                </tr>
-                <tr>
-                <td>-</td>
-                <td></td>
-                <td></td>
-                </tr>
-                <tr>
-                <td>-</td>
-                <td></td>
-                <td></td>
-                </tr>
-                <tr>
-                <td>-</td>
-                <td></td>
-                <td></td>
-                </tr>
+                </tbody>
+
+                <thead>
+                    <th colspan="3" class="text-center">Upcoming events statistics by category</th>
+                </thead>
+                <tbody class="body-upcoming">
+                    <tr>
+                        <td>Categories</td>
+                        <td>Revenues</td>
+                        <td>Percentage of attendance</td>
+                    </tr>
+                </tbody>
+
+                <thead>
+                    <th colspan="3" class="text-center">Past Events statistic by category</th>
+                </thead>
+                <tbody class="body-past">
+                    <tr>
+                        <td>Categories</td>
+                        <td>Revenues</td>
+                        <td>Percentage of attendance</td>
+                    </tr>
                 </tbody>
             </table>
             </div>
         </div>
-    
     </main>
     <footer class="d-flex text-white align-items-center justify-content-around mt-auto">
         <div class="d-flex">
@@ -149,7 +109,7 @@
         </div>
     </footer>
 
-<script src="./script.js"></script>
+<script src="./stats.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 </html>
