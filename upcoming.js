@@ -18,7 +18,7 @@ const mapeoData = (array, donde) => {
         <p>Description: ${item.description}</p>
         <div class="d-flex align-items-center justify-content-evenly text-start">
             <label class="precio d-flex justify-content-start">Price:<b>$${item.price}</b></label>
-            <a style="width: 100px;" href="./details.html?id=${item._id}" class="btn bg-black text-white ver">Ver más</a>
+            <a style="width: 100px;" href="./details.html?id=${item._id}" class="btn bg-black text-white ver">See more</a>
         </div>
         </div>`
         if(data.currentDate < item.date){
