@@ -9,11 +9,14 @@ let checkbox = document.querySelectorAll("input[name=checkbox]");
 let data;
 
 async function getData(){
-    await fetch("https://amazing-events.herokuapp.com/api/events")
-        .then(res => res.json())
-        .then(json => data = json);
-    mapeoData(data.events, home)
+        await fetch("https://amazing-events.herokuapp.com/api/events")
+        .then((res) => res.json())
+        .then((json) => data = json)
+        .catch((err) => console.error(err))
+
+        mapeoData(data.events, home)
 }
+
 
 getData()
 
@@ -56,8 +59,6 @@ search.addEventListener('keyup', (e) => {
 /* Creo un array para ir agregando los nombres de los checkbox marcados. Cuando se destildan se retiran del array */
 
 let checkboxList = [];
-
-
 
 checkbox.forEach(item => item.addEventListener("change", ()=>{
     checkboxList = Array.from(checkbox).filter(item => item.checked).map(item => item.value)

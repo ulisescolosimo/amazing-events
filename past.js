@@ -5,14 +5,21 @@ let search = document.querySelector("#search");
 let checkbox = document.querySelectorAll("input[name=checkbox]");
 
 let data;
+let filtroDataHome = [];
 
 async function getData(){
-    await fetch("https://amazing-events.herokuapp.com/api/events")
+    try{
+        await fetch("https://amazing-events.herokuapp.com/api/events")
         .then(res => res.json())
-        .then(json => data = json);
+        .then(json => data = json)
+        .catch((err) => console.error(err))
         let currentDate = data.currentDate
-        let filtroDataHome = data.events.filter(event => event.date.toString() < currentDate).map(event => event)
+        filtroDataHome = data.events.filter(event => event.date.toString() < currentDate).map(event => event)
         mapeoData(filtroDataHome, cardContainerPast)
+    }
+    catch(error){
+        console.error(error)
+    }
 }
 
 getData()
@@ -63,7 +70,7 @@ function filterName(array, search) {
 }
 
 function filtrarArray(filtro) {
-    let elementosFiltrados = data.events.filter(item => filtro.includes(item.category))
+    let elementosFiltrados = filtroDataHome.filter(item => filtro.includes(item.category))
     return elementosFiltrados
 }
 
@@ -76,10 +83,10 @@ let searchKey = (checks, search) => {
             arrayFiltro = filterEvents
         /* Else if  los checkbox estan vacios y la searchbar tambien esta vacia, se mapea el array default (data.events) */
         } else if (checks.length === 0 && search.length === 0) {
-            arrayFiltro = data.events
+            arrayFiltro = filtroDataHome
         /* Else if los checkbox estan vacios pero la searchbar tiene contenido, se filtran los nombres de las cartas que posean alguna letra ingresada en searchbar */
         } else if (checks.length === 0 && search.length > 0) {
-            let searchbarEvents = filterName(data.events, search)
+            let searchbarEvents = filterName(filtroDataHome, search)
             arrayFiltro = searchbarEvents
         } else if(checks.length > 0 && search != ""){
             /* Si searchbar tiene valor y algun checkbox esta marcado: */
