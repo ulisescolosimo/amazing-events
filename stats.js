@@ -2,14 +2,11 @@ let tableMain = document.querySelector(".mainTable");
 let tableUpcoming = document.querySelector(".body-upcoming");
 let tablePast = document.querySelector(".body-past");
 
-let data;
-let upcomingEvents;
-let pastEvents;
-
 const getData = async() => {
     await fetch("https://amazing-events.herokuapp.com/api/events")
     .then(res => res.json())
     .then(json => data = json)
+    .catch(err => console.log(err))
     upcomingEvents = data.events.filter(event => event.date.toString() > data.currentDate)
     pastEvents = data.events.filter(event => event.date.toString() < data.currentDate)
 
