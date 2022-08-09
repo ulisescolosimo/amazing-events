@@ -4,12 +4,14 @@ const contenedorDetalle = document.querySelector('.contenedor-detalle')
 async function getData(){
     await fetch("https://amazing-events.herokuapp.com/api/events")
         .then(res => res.json())
-        .then(json => data = json);
-        const queryString = location.search
-        const params = new URLSearchParams(queryString)
-        const id = params.get("id")
-        const evento = data.events.find(item => item._id == id)
-        mapeoData(evento)
+        .then(json => data = json)
+        .catch(err => console.log(err))
+        
+    const queryString = location.search
+    const params = new URLSearchParams(queryString)
+    const id = params.get("id")
+    const evento = data.events.find(item => item._id == id)
+    mapeoData(evento)
 }
 
 getData()

@@ -18,28 +18,28 @@ const getData = async() => {
 
     let maxAtt = maxAssistance(stats)
     /* Past events ordenado de mayor a menor en porcentaje de asistencia */
-    console.log(maxAtt)
+    /* console.log(maxAtt) */
 
     let minAtt = minAssistance(stats)
     /* Past events ordenado de menor a mayor en porcentaje de asistencia */
-    console.log(minAtt)
+    /* console.log(minAtt) */
 
     let maxCap = maxCapacity(stats)
-    console.log(maxCap)
+    /* console.log(maxCap) */
 
     innerDataAttendance(maxAtt, minAtt, maxCap, tableMain)
 
     /* --------------------------------------Tabla 2 y 3--------------------------------------------------- */
 
     let categories = [...(new Set(data.events.map(item => item.category)))]
-    console.log(categories)
+    /* console.log(categories) */
 
     let upcomingStatistics = statsForUpcomingAndPast(upcomingEvents, categories)
-    console.log(upcomingStatistics)
+    /* console.log(upcomingStatistics) */
 
 
     let pastStatistics = statsForUpcomingAndPast(pastEvents, categories)
-    console.log(pastStatistics)
+    /* console.log(pastStatistics) */
 
     showTableUpcomingAndPast(upcomingStatistics, tableUpcoming)
     showTableUpcomingAndPast(pastStatistics, tablePast)
@@ -75,8 +75,10 @@ const statsCalc = (array) => {
             assistance: element.assistance,
             capacity: element.capacity
         }
+        console.log(newElement)
         return newElement
     })
+    console.log(newArray)
     return newArray
 }
 

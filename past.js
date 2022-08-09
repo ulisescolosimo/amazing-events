@@ -12,6 +12,7 @@ async function getData(){
     await fetch("https://amazing-events.herokuapp.com/api/events")
         .then(res => res.json())
         .then(json => data = json)
+        .catch(err => console.log(err))
     let currentDate = data.currentDate
     filtroDataHome = data.events.filter(event => event.date.toString() < currentDate).map(event => event)
     mapeoData(filtroDataHome, cardContainerPast)
