@@ -90,10 +90,6 @@ nav ul {
     align-content: center;
 }
 
-#search2 {
-    display: none !important;
-}
-
 .container {
     margin: auto;
 }
@@ -353,18 +349,6 @@ body {
 @media only screen and (max-width: 425px) {
     .categorias {
         flex-direction: column !important;
-    }
-
-    #search {
-        display: none !important;
-    }
-
-    #search2 {
-        display: inline !important;
-    }
-
-    .cbox {
-        display: none !important;
     }
 
     .form-select {
